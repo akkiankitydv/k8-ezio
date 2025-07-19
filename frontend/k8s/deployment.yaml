@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ezio
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ezio
+  template:
+    metadata:
+      labels:
+        app: ezio
+    spec:
+      containers:
+      - name: myapp
+        image: akkiankit/k8-ez-frontend:v3
+        ports:
+        - containerPort: 80
